@@ -1,0 +1,430 @@
+
+/* ======================================== */
+/* ROCINANTE COMMAND INTERFACE              */
+/* GLOBAL STYLES AND COLOR SYSTEM           */
+/* ======================================== */
+
+:root {
+
+    /* Main Background Colors */
+    --background: #080F16;
+    --panel-background: #101F2A;
+    --secondary-background: #162B39;
+
+    /* Interface Colors */
+    --martian-orange: #E9A94F;
+    --system-cyan: #62D9F0;
+    --system-green: #65D6A6;
+    --warning-red: #E85D5D;
+
+    /* Text Colors */
+    --primary-text: #E2EDF3;
+    --secondary-text: #92AAB9;
+
+    /* Borders */
+    --border-color: #294454;
+
+}
+
+
+/* ======================================== */
+/* GLOBAL PAGE SETTINGS                     */
+/* ======================================== */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: var(--background);
+
+    color: var(--primary-text);
+
+    min-height: 100vh;
+
+}
+
+
+/* ======================================== */
+/* HEADER                                   */
+/* ======================================== */
+
+header {
+
+    background-color: var(--panel-background);
+
+    border-bottom: 2px solid var(--martian-orange);
+
+    padding: 35px 40px;
+
+    text-align: center;
+
+}
+
+header h1 {
+
+    margin: 0 0 15px;
+
+    font-size: 38px;
+
+    letter-spacing: 6px;
+
+    color: var(--system-cyan);
+
+}
+
+header p {
+
+    margin: 8px 0;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* ======================================== */
+/* MAIN COMMAND AREA                        */
+/* ======================================== */
+
+main {
+
+    max-width: 1200px;
+
+    margin: 50px auto;
+
+    padding: 0 25px;
+
+}
+
+#command {
+
+    background-color: var(--panel-background);
+
+    border: 1px solid var(--border-color);
+
+    border-top: 4px solid var(--martian-orange);
+
+    padding: 35px;
+
+}
+
+#command h2 {
+
+    color: var(--system-cyan);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-top: 0;
+
+}
+
+#command p {
+
+    color: var(--secondary-text);
+
+    line-height: 1.8;
+
+}
+
+
+/* ======================================== */
+/* FOOTER                                   */
+/* ======================================== */
+
+footer {
+
+    border-top: 1px solid var(--border-color);
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: var(--secondary-text);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ======================================== */
+/* MOBILE RESPONSIVENESS                    */
+/* ======================================== */
+
+@media (max-width: 700px) {
+
+    header {
+
+        padding: 30px 15px;
+
+    }
+
+    header h1 {
+
+        font-size: 27px;
+
+        letter-spacing: 3px;
+
+    }
+
+    main {
+
+        margin: 25px auto;
+
+        padding: 0 15px;
+
+    }
+
+    #command {
+
+        padding: 22px;
+
+    }
+
+}
+
+/* ======================================== */
+/* SHIPBOARD NAVIGATION                     */
+/* ======================================== */
+
+.ship-navigation {
+
+    background-color: var(--panel-background);
+
+    border: 1px solid var(--border-color);
+
+    border-left: 4px solid var(--martian-orange);
+
+    max-width: 1200px;
+
+    margin: 30px auto 0;
+
+    padding: 25px;
+
+}
+
+
+/* ======================================== */
+/* NAVIGATION HEADER                        */
+/* ======================================== */
+
+.navigation-title {
+
+    margin-bottom: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+.navigation-title h2 {
+
+    margin: 0 0 10px;
+
+    color: var(--system-cyan);
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+}
+
+.navigation-title p {
+
+    margin: 0;
+
+    color: var(--secondary-text);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ======================================== */
+/* NAVIGATION LINKS                         */
+/* ======================================== */
+
+.navigation-links {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+
+}
+
+.navigation-links li {
+
+    margin: 0;
+
+}
+
+.navigation-links a {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 55px;
+
+    padding: 15px;
+
+    color: var(--secondary-text);
+
+    background-color: var(--secondary-background);
+
+    border: 1px solid var(--border-color);
+
+    border-left: 3px solid transparent;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+
+}
+
+
+/* ======================================== */
+/* HOVER EFFECTS                            */
+/* ======================================== */
+
+.navigation-links a:hover {
+
+    color: var(--system-cyan);
+
+    background-color: #1D394A;
+
+    border-left-color: var(--system-cyan);
+
+    box-shadow: 0 0 12px rgba(98, 217, 240, 0.12);
+
+}
+
+
+/* ======================================== */
+/* ACTIVE NAVIGATION SYSTEM                 */
+/* ======================================== */
+
+.navigation-links a.active {
+
+    color: var(--martian-orange);
+
+    border-left-color: var(--martian-orange);
+
+    background-color: #203442;
+
+}
+
+.navigation-links a:focus-visible {
+
+    outline: 2px solid var(--system-cyan);
+
+    outline-offset: 3px;
+
+}
+
+
+/* ======================================== */
+/* SHIP CONNECTION STATUS                   */
+/* ======================================== */
+
+.navigation-status {
+
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border-color);
+
+}
+
+.navigation-status p {
+
+    margin: 8px 0;
+
+    color: var(--secondary-text);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+}
+
+.navigation-status p:first-child {
+
+    color: var(--system-green);
+
+}
+
+
+/* ======================================== */
+/* RESPONSIVE NAVIGATION                    */
+/* ======================================== */
+
+@media (max-width: 800px) {
+
+    .ship-navigation {
+
+        margin: 20px 15px 0;
+
+        padding: 20px;
+
+    }
+
+    .navigation-links {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .navigation-links {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .navigation-links a {
+
+        min-height: 48px;
+
+    }
+
+}
