@@ -428,3 +428,585 @@ footer {
     }
 
 }
+
+/* ======================================== */
+/* COMMAND OVERVIEW — SECTION HEADER        */
+/* ======================================== */
+
+.section-heading {
+
+    margin-bottom: 30px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+#command .section-designation {
+
+    margin: 0 0 12px;
+
+    color: var(--martian-orange);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+#command .section-description {
+
+    margin-bottom: 0;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+
+}
+
+
+/* ======================================== */
+/* PRIMARY SYSTEMS MONITOR                  */
+/* ======================================== */
+
+.systems-monitor {
+
+    margin-bottom: 30px;
+
+}
+
+.systems-monitor h3,
+.command-authorization h3 {
+
+    margin: 0 0 20px;
+
+    color: var(--system-cyan);
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+
+}
+
+.systems-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+}
+
+
+/* ======================================== */
+/* INDIVIDUAL SYSTEM CARDS                  */
+/* ======================================== */
+
+.system-card {
+
+    background-color: var(--secondary-background);
+
+    border: 1px solid var(--border-color);
+
+    border-left: 3px solid var(--system-cyan);
+
+    padding: 20px;
+
+}
+
+.system-card h4 {
+
+    margin: 0 0 15px;
+
+    color: var(--primary-text);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+#command .system-status {
+
+    margin: 0;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+#command .system-status.nominal {
+
+    color: var(--system-green);
+
+}
+
+#command .system-status.standby {
+
+    color: var(--martian-orange);
+
+}
+
+
+/* ======================================== */
+/* COMMAND AUTHORIZATION PANEL              */
+/* ======================================== */
+
+.command-authorization {
+
+    background-color: var(--secondary-background);
+
+    border: 1px solid var(--border-color);
+
+    border-top: 3px solid var(--martian-orange);
+
+    padding: 25px;
+
+}
+
+#command .command-authorization p {
+
+    margin: 0;
+
+    color: var(--martian-orange);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ======================================== */
+/* RESPONSIVE COMMAND OVERVIEW              */
+/* ======================================== */
+
+@media (max-width: 500px) {
+
+    .systems-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .system-card {
+
+        padding: 18px;
+
+    }
+
+    .command-authorization {
+
+        padding: 20px;
+
+    }
+
+}
+
+/* ======================================== */
+/* COMMAND AUTHORIZATION CONTROL            */
+/* ======================================== */
+
+#authorize-command {
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    background-color: transparent;
+
+    color: var(--martian-orange);
+
+    border: 1px solid var(--martian-orange);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+}
+
+#authorize-command:hover {
+
+    background-color: var(--martian-orange);
+
+    color: var(--background);
+
+}
+
+#authorize-command:focus-visible {
+
+    outline: 2px solid var(--system-cyan);
+
+    outline-offset: 3px;
+
+}
+
+#authorize-command:disabled {
+
+    cursor: default;
+
+    color: var(--system-green);
+
+    border-color: var(--system-green);
+
+    background-color: transparent;
+
+}
+
+/* ======================================== */
+/* PRIMARY SYSTEM CONTROL BUTTONS           */
+/* ======================================== */
+
+.system-control {
+
+    margin-top: 18px;
+
+    padding: 10px 14px;
+
+    background-color: transparent;
+
+    color: var(--system-cyan);
+
+    border: 1px solid var(--system-cyan);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+}
+
+.system-control:hover:not(:disabled) {
+
+    background-color: var(--system-cyan);
+
+    color: var(--background);
+
+}
+
+.system-control:focus-visible {
+
+    outline: 2px solid var(--martian-orange);
+
+    outline-offset: 3px;
+
+}
+
+.system-control:disabled {
+
+    color: var(--secondary-text);
+
+    border-color: var(--border-color);
+
+    cursor: not-allowed;
+
+}
+
+/* ======================================== */
+/* REACTOR TELEMETRY — HYBRID DISPLAY        */
+/* ======================================== */
+
+.reactor-telemetry {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 25px;
+
+}
+
+
+/* ======================================== */
+/* CIRCULAR REACTOR GAUGE                   */
+/* ======================================== */
+
+.reactor-gauge {
+
+    position: relative;
+
+    width: 140px;
+
+    height: 140px;
+
+    flex-shrink: 0;
+
+}
+
+.reactor-gauge svg {
+
+    width: 100%;
+
+    height: 100%;
+
+    transform: rotate(-90deg);
+
+}
+
+.gauge-background,
+.gauge-progress {
+
+    fill: none;
+
+    stroke-width: 9;
+
+}
+
+.gauge-background {
+
+    stroke: var(--border-color);
+
+}
+
+.gauge-progress {
+
+    stroke: var(--system-cyan);
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 358.14;
+
+    stroke-dashoffset: 118.19;
+
+    transition: stroke-dashoffset 0.8s ease;
+
+}
+
+
+/* ======================================== */
+/* REACTOR GAUGE DIGITAL READOUT            */
+/* ======================================== */
+
+.gauge-readout {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+#reactor-output {
+
+    color: var(--primary-text);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+}
+
+.gauge-readout small {
+
+    color: var(--secondary-text);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ======================================== */
+/* REACTOR TELEMETRY READOUTS               */
+/* ======================================== */
+
+.reactor-readouts {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+.telemetry-item {
+
+    margin-bottom: 20px;
+
+}
+
+.telemetry-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 9px;
+
+    color: var(--secondary-text);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+#reactor-power-value {
+
+    color: var(--system-cyan);
+
+}
+
+#reactor-temperature {
+
+    color: var(--system-green);
+
+}
+
+
+/* ======================================== */
+/* HORIZONTAL TELEMETRY BARS                */
+/* ======================================== */
+
+.telemetry-track {
+
+    height: 7px;
+
+    background-color: var(--border-color);
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+}
+
+.telemetry-fill {
+
+    height: 100%;
+
+    border-radius: 4px;
+
+    transition: width 0.8s ease;
+
+}
+
+.power-fill {
+
+    background-color: var(--system-cyan);
+
+}
+
+.temperature-fill {
+
+    background-color: var(--system-green);
+
+}
+
+
+/* ======================================== */
+/* REACTOR CONTAINMENT STATUS               */
+/* ======================================== */
+
+#command .reactor-containment {
+
+    margin: 5px 0 0;
+
+    color: var(--martian-orange);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ======================================== */
+/* RESPONSIVE REACTOR TELEMETRY             */
+/* ======================================== */
+
+@media (max-width: 1000px) {
+
+    .reactor-telemetry {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .reactor-gauge {
+
+        align-self: center;
+
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .reactor-telemetry {
+
+        gap: 20px;
+
+    }
+
+    .telemetry-label {
+
+        font-size: 9px;
+
+        letter-spacing: 0;
+
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gauge-progress,
+    .telemetry-fill {
+
+        transition: none;
+
+    }
+
+}
+

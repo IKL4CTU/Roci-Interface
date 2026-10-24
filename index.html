@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ROCINANTE | Ship Command Interface</title>
 
@@ -42,98 +40,245 @@
 
     </header>
 
-<!-- ======================================== -->
-<!-- SHIPBOARD NAVIGATION                     -->
-<!-- ======================================== -->
+    <!-- ======================================== -->
+    <!-- SHIPBOARD NAVIGATION                     -->
+    <!-- ======================================== -->
 
-<nav class="ship-navigation"
-     aria-label="Shipboard Systems">
+    <nav class="ship-navigation" aria-label="Shipboard Systems">
 
-    <div class="navigation-title">
-        <h2>SHIP SYSTEMS</h2>
-        <p>MCRN TACHI — COMMAND NETWORK</p>
-    </div>
+        <div class="navigation-title">
+            <h2>SHIP SYSTEMS</h2>
+            <p>MCRN TACHI — COMMAND NETWORK</p>
+        </div>
 
-    <ul class="navigation-links">
+        <ul class="navigation-links">
 
-        <li>
-            <a href="#command" class="active">
-                01 — COMMAND OVERVIEW
-            </a>
-        </li>
+            <li>
+                <a href="#command" class="active">
+                    01 — COMMAND OVERVIEW
+                </a>
+            </li>
 
-        <li>
-            <a href="#navigation">
-                02 — NAVIGATION
-            </a>
-        </li>
+            <li>
+                <a href="#navigation">
+                    02 — NAVIGATION
+                </a>
+            </li>
 
-        <li>
-            <a href="#reactor">
-                03 — REACTOR &amp; DRIVE
-            </a>
-        </li>
+            <li>
+                <a href="#reactor">
+                    03 — REACTOR &amp; DRIVE
+                </a>
+            </li>
 
-        <li>
-            <a href="#tactical">
-                04 — TACTICAL SYSTEMS
-            </a>
-        </li>
+            <li>
+                <a href="#tactical">
+                    04 — TACTICAL SYSTEMS
+                </a>
+            </li>
 
-        <li>
-            <a href="#communications">
-                05 — COMMUNICATIONS
-            </a>
-        </li>
+            <li>
+                <a href="#communications">
+                    05 — COMMUNICATIONS
+                </a>
+            </li>
 
-        <li>
-            <a href="#crew">
-                06 — CREW MANIFEST
-            </a>
-        </li>
+            <li>
+                <a href="#crew">
+                    06 — CREW MANIFEST
+                </a>
+            </li>
 
-    </ul>
+        </ul>
 
-    <div class="navigation-status">
-        <p>● SHIP LINK ESTABLISHED</p>
-        <p>STATUS: SYSTEM STANDBY</p>
-    </div>
+        <div class="navigation-status">
+            <p>● SHIP LINK ESTABLISHED</p>
+            <p>STATUS: SYSTEM STANDBY</p>
+        </div>
 
-</nav>
- 
+    </nav>
+
     <!-- MAIN SHIP SYSTEMS -->
-    <main>
 
-        <section id="command">
+    <!-- ======================================== -->
+    <!-- 01 — COMMAND OVERVIEW                    -->
+    <!-- ======================================== -->
 
-            <h2>Command Overview</h2>
+    <section id="command" class="command-overview">
+
+        <div class="section-heading">
+
+            <p class="section-designation">
+                01 // SHIP COMMAND
+            </p>
+
+            <h2>COMMAND OVERVIEW</h2>
+
+            <p class="section-description">
+                Primary shipboard systems monitoring
+                and command authorization.
+            </p>
+
+        </div>
+
+        <!-- PRIMARY SYSTEMS MONITOR -->
+        <div class="systems-monitor">
+
+            <h3>PRIMARY SYSTEMS</h3>
+
+            <div class="systems-grid">
+
+
+
+                <!-- REACTOR TELEMETRY -->
+                <div class="system-card reactor-card">
+
+                    <h4>REACTOR</h4>
+
+                    <p class="system-status nominal">
+                        ● NOMINAL
+                    </p>
+
+                    <!-- REACTOR OUTPUT GAUGE -->
+                    <div class="reactor-telemetry">
+
+                        <div class="reactor-gauge">
+
+                            <svg viewBox="0 0 140 140" role="img" aria-label="Reactor output at 67 percent">
+
+                                <circle class="gauge-background" cx="70" cy="70" r="57">
+                                </circle>
+
+                                <circle id="reactor-gauge-progress" class="gauge-progress" cx="70" cy="70" r="57">
+                                </circle>
+
+                            </svg>
+
+                            <div class="gauge-readout">
+
+                                <span id="reactor-output">
+                                    67%
+                                </span>
+
+                                <small>OUTPUT</small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- REACTOR SYSTEM READOUTS -->
+                        <div class="reactor-readouts">
+
+                            <div class="telemetry-item">
+
+                                <div class="telemetry-label">
+                                    <span>POWER OUTPUT</span>
+                                    <span id="reactor-power-value">67%</span>
+                                </div>
+
+                                <div class="telemetry-track">
+                                    <div id="reactor-power-bar" class="telemetry-fill power-fill" style="width: 67%;">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="telemetry-item">
+
+                                <div class="telemetry-label">
+                                    <span>CORE TEMPERATURE</span>
+                                    <span id="reactor-temperature">
+                                        NOMINAL
+                                    </span>
+                                </div>
+
+
+                                <div class="telemetry-track">
+
+                                    <div id="reactor-temperature-bar" class="telemetry-fill temperature-fill"
+                                        style="width: 42%;">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <p class="reactor-containment">
+                                REACTOR CONTAINMENT // STABLE
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="system-card">
+
+                    <h4>EPSTEIN DRIVE</h4>
+
+                    <p id="drive-status" class="system-status standby" aria-live="polite">
+                        ● STANDBY
+                    </p>
+
+                    <button id="activate-drive" class="system-control" type="button" disabled>
+                        COMMAND LOCKED
+                    </button>
+
+                </div>
+
+                <div class="system-card">
+                    <h4>LIFE SUPPORT</h4>
+                    <p class="system-status nominal">
+                        ● NOMINAL
+                    </p>
+                </div>
+
+                <div class="system-card">
+                    <h4>TACTICAL SYSTEMS</h4>
+                    <p class="system-status standby">
+                        ● SAFE
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- COMMAND AUTHORIZATION -->
+        <div class="command-authorization">
+
+            <h3>COMMAND AUTHORIZATION</h3>
+
+            <p id="authorization-status" aria-live="polite">
+                AWAITING CAPTAIN'S INPUT
+            </p>
+
+            <button id="authorize-command" type="button">
+                AUTHORIZE COMMAND
+            </button>
+
+        </div>
+
+
+
+        </main>
+
+        <!-- SYSTEM FOOTER -->
+        <footer>
 
             <p>
-                Welcome to the Rocinante Shipboard
-                Command Interface.
+                ROCINANTE COMMAND SYSTEMS
             </p>
 
             <p>
-                Primary systems standing by.
-                Awaiting command authorization.
+                UNOFFICIAL FAN-MADE SIMULATOR
             </p>
 
-        </section>
-
-    </main>
-
-    <!-- SYSTEM FOOTER -->
-    <footer>
-
-        <p>
-            ROCINANTE COMMAND SYSTEMS
-        </p>
-
-        <p>
-            UNOFFICIAL FAN-MADE SIMULATOR
-        </p>
-
-    </footer>
+        </footer>
 
 </body>
 
