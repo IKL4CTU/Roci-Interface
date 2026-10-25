@@ -1,172 +1,130 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ROCINANTE | Ship Command Interface</title>
 
-    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Main JavaScript -->
     <script src="script.js" defer></script>
-
 </head>
 
 <body>
 
-    <!-- ======================================== -->
-    <!-- ROCINANTE SHIP COMMAND INTERFACE        -->
-    <!-- ======================================== -->
+    <!-- ===================================== -->
+    <!-- ROCINANTE COMMAND HEADER             -->
+    <!-- ===================================== -->
 
-    <header>
+    <header class="ship-header">
 
         <h1>ROCINANTE</h1>
 
-        <p>
-            UNN ROCINANTE
-        </p>
-
-        <p>
-            MCRN TACHI — LEGACY SYSTEMS
-        </p>
-
-        <p>
-            SHIPBOARD COMMAND AND CONTROL INTERFACE
-        </p>
+        <p>UNN ROCINANTE</p>
+        <p>MCRN TACHI — LEGACY SYSTEMS</p>
+        <p>SHIPBOARD COMMAND AND CONTROL INTERFACE</p>
 
     </header>
 
-    <!-- ======================================== -->
-    <!-- SHIPBOARD NAVIGATION                     -->
-    <!-- ======================================== -->
 
-    <nav class="ship-navigation" aria-label="Shipboard Systems">
+    <!-- ===================================== -->
+    <!-- SHIP SYSTEM NAVIGATION               -->
+    <!-- ===================================== -->
 
-        <div class="navigation-title">
-            <h2>SHIP SYSTEMS</h2>
-            <p>MCRN TACHI — COMMAND NETWORK</p>
+    <section class="navigation-container">
+
+        <h2>SHIP SYSTEMS</h2>
+        <p class="nav-subtitle">MCRN TACHI — COMMAND NETWORK</p>
+
+        <nav class="systems-navigation">
+
+            <button class="nav-button active" data-panel="command">
+                01 — COMMAND OVERVIEW
+            </button>
+
+            <button class="nav-button" data-panel="navigation">
+                02 — NAVIGATION
+            </button>
+
+            <button class="nav-button" data-panel="engineering">
+                03 — REACTOR & DRIVE
+            </button>
+
+            <button class="nav-button" data-panel="tactical">
+                04 — TACTICAL SYSTEMS
+            </button>
+
+            <button class="nav-button" data-panel="communications">
+                05 — COMMUNICATIONS
+            </button>
+
+            <button class="nav-button" data-panel="crew">
+                06 — CREW MANIFEST
+            </button>
+
+        </nav>
+
+        <div class="network-status">
+            <span class="status-green">● SHIP LINK ESTABLISHED</span>
+            <span>STATUS: SYSTEM STANDBY</span>
         </div>
 
-        <ul class="navigation-links">
+    </section>
 
-            <li>
-                <a href="#command" class="active">
-                    01 — COMMAND OVERVIEW
-                </a>
-            </li>
 
-            <li>
-                <a href="#navigation">
-                    02 — NAVIGATION
-                </a>
-            </li>
+    <!-- ===================================== -->
+    <!-- MAIN WORKSPACE                       -->
+    <!-- ===================================== -->
 
-            <li>
-                <a href="#reactor">
-                    03 — REACTOR &amp; DRIVE
-                </a>
-            </li>
+    <main>
 
-            <li>
-                <a href="#tactical">
-                    04 — TACTICAL SYSTEMS
-                </a>
-            </li>
+        <!-- COMMAND OVERVIEW -->
 
-            <li>
-                <a href="#communications">
-                    05 — COMMUNICATIONS
-                </a>
-            </li>
+        <section id="command" class="view-panel">
 
-            <li>
-                <a href="#crew">
-                    06 — CREW MANIFEST
-                </a>
-            </li>
-
-        </ul>
-
-        <div class="navigation-status">
-            <p>● SHIP LINK ESTABLISHED</p>
-            <p>STATUS: SYSTEM STANDBY</p>
-        </div>
-
-    </nav>
-
-    <!-- MAIN SHIP SYSTEMS -->
-
-    <!-- ======================================== -->
-    <!-- 01 — COMMAND OVERVIEW                    -->
-    <!-- ======================================== -->
-
-    <section id="command" class="command-overview">
-
-        <div class="section-heading">
-
-            <p class="section-designation">
-                01 // SHIP COMMAND
-            </p>
+            <p class="section-index">01 // SHIP COMMAND</p>
 
             <h2>COMMAND OVERVIEW</h2>
 
             <p class="section-description">
-                Primary shipboard systems monitoring
-                and command authorization.
+                Primary shipboard systems monitoring and command authorization.
             </p>
 
-        </div>
+            <hr>
 
-        <!-- PRIMARY SYSTEMS MONITOR -->
-        <div class="systems-monitor">
+            <h3 class="group-title">PRIMARY SYSTEMS</h3>
 
-            <h3>PRIMARY SYSTEMS</h3>
 
             <div class="systems-grid">
 
+                <!-- ========================== -->
+                <!-- REACTOR                    -->
+                <!-- ========================== -->
 
-
-                <!-- REACTOR TELEMETRY -->
-                <div class="system-card reactor-card">
+                <div class="system-card">
 
                     <h4>REACTOR</h4>
 
-                    <p class="system-status nominal">
+                    <p class="system-status status-green">
                         ● NOMINAL
                     </p>
 
-                    <!-- REACTOR OUTPUT GAUGE -->
-                    <div class="reactor-telemetry">
+                    <div class="reactor-dashboard">
 
-                        <div class="reactor-gauge">
+                        <div id="reactor-gauge" class="reactor-gauge">
 
-                            <svg viewBox="0 0 140 140" role="img" aria-label="Reactor output at 67 percent">
+                            <div class="gauge-inner">
 
-                                <circle class="gauge-background" cx="70" cy="70" r="57">
-                                </circle>
-
-                                <circle id="reactor-gauge-progress" class="gauge-progress" cx="70" cy="70" r="57">
-                                </circle>
-
-                            </svg>
-
-                            <div class="gauge-readout">
-
-                                <span id="reactor-output">
-                                    67%
-                                </span>
-
-                                <small>OUTPUT</small>
+                                <strong id="reactor-output">67%</strong>
+                                <span>OUTPUT</span>
 
                             </div>
 
                         </div>
 
-                        <!-- REACTOR SYSTEM READOUTS -->
+
                         <div class="reactor-readouts">
 
                             <div class="telemetry-item">
@@ -177,30 +135,30 @@
                                 </div>
 
                                 <div class="telemetry-track">
-                                    <div id="reactor-power-bar" class="telemetry-fill power-fill" style="width: 67%;">
+                                    <div
+                                        id="reactor-power-bar"
+                                        class="telemetry-fill power-fill"
+                                        style="width:67%">
                                     </div>
                                 </div>
 
                             </div>
 
+
                             <div class="telemetry-item">
 
                                 <div class="telemetry-label">
                                     <span>CORE TEMPERATURE</span>
-                                    <span id="reactor-temperature">
-                                        NOMINAL
-                                    </span>
+                                    <span id="reactor-temperature">NOMINAL</span>
                                 </div>
-
 
                                 <div class="telemetry-track">
-
-                                    <div id="reactor-temperature-bar" class="telemetry-fill temperature-fill"
-                                        style="width: 42%;">
+                                    <div
+                                        id="reactor-temperature-bar"
+                                        class="telemetry-fill temperature-fill"
+                                        style="width:42%">
                                     </div>
-
                                 </div>
-
 
                             </div>
 
@@ -215,71 +173,263 @@
                 </div>
 
 
+                <!-- ========================== -->
+                <!-- EPSTEIN DRIVE              -->
+                <!-- ========================== -->
 
                 <div class="system-card">
 
                     <h4>EPSTEIN DRIVE</h4>
 
-                    <p id="drive-status" class="system-status standby" aria-live="polite">
+                    <p
+                        id="drive-status"
+                        class="system-status status-amber"
+                        aria-live="polite">
                         ● STANDBY
                     </p>
 
-                    <button id="activate-drive" class="system-control" type="button" disabled>
+                    <button
+                        id="activate-drive"
+                        class="system-control"
+                        type="button"
+                        disabled>
                         COMMAND LOCKED
                     </button>
 
+
+                    <!-- ENGINEERING TELEMETRY -->
+
+                    <div class="drive-telemetry">
+
+                        <h5>
+                            PROPULSION ENGINEERING / LIVE DATA
+                        </h5>
+
+
+                        <!-- DRIVE EFFICIENCY -->
+
+                        <div class="drive-metric">
+
+                            <div class="telemetry-label">
+                                <span>DRIVE EFFICIENCY</span>
+                                <span id="drive-efficiency-value">0%</span>
+                            </div>
+
+                            <div class="telemetry-track">
+                                <div
+                                    id="drive-efficiency-bar"
+                                    class="telemetry-fill power-fill">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- THRUST OUTPUT -->
+
+                        <div class="drive-metric">
+
+                            <div class="telemetry-label">
+                                <span>THRUST OUTPUT</span>
+                                <span id="drive-thrust-value">0%</span>
+                            </div>
+
+                            <div class="telemetry-track">
+                                <div
+                                    id="drive-thrust-bar"
+                                    class="telemetry-fill thrust-fill">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ENGINE TEMPERATURE -->
+
+                        <div class="drive-metric">
+
+                            <div class="telemetry-label">
+                                <span>ENGINE TEMPERATURE</span>
+                                <span id="drive-temperature-value">0%</span>
+                            </div>
+
+                            <div class="telemetry-track">
+                                <div
+                                    id="drive-temperature-bar"
+                                    class="telemetry-fill temperature-fill">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            id="drive-engineering-status"
+                            class="drive-footer">
+                            PROPULSION SYSTEM / STANDBY
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="system-card">
+
+                <!-- ========================== -->
+                <!-- LIFE SUPPORT              -->
+                <!-- ========================== -->
+
+                <div class="system-card small-card">
+
                     <h4>LIFE SUPPORT</h4>
-                    <p class="system-status nominal">
+
+                    <p class="system-status status-green">
                         ● NOMINAL
                     </p>
+
                 </div>
 
-                <div class="system-card">
+
+                <!-- ========================== -->
+                <!-- TACTICAL SYSTEMS           -->
+                <!-- ========================== -->
+
+                <div class="system-card small-card">
+
                     <h4>TACTICAL SYSTEMS</h4>
-                    <p class="system-status standby">
+
+                    <p class="system-status status-amber">
                         ● SAFE
                     </p>
+
                 </div>
 
             </div>
 
-        </div>
 
-        <!-- COMMAND AUTHORIZATION -->
-        <div class="command-authorization">
+            <!-- ============================== -->
+            <!-- COMMAND AUTHORIZATION          -->
+            <!-- ============================== -->
 
-            <h3>COMMAND AUTHORIZATION</h3>
+            <section class="authorization">
 
-            <p id="authorization-status" aria-live="polite">
-                AWAITING CAPTAIN'S INPUT
-            </p>
+                <h3>COMMAND AUTHORIZATION</h3>
 
-            <button id="authorize-command" type="button">
-                AUTHORIZE COMMAND
-            </button>
+                <p id="command-status">
+                    AWAITING CAPTAIN'S INPUT
+                </p>
 
-        </div>
+                <button
+                    id="authorize-command"
+                    class="authorization-button"
+                    type="button">
+                    AUTHORIZE COMMAND
+                </button>
+
+            </section>
+
+        </section>
 
 
+        <!-- ================================= -->
+        <!-- NAVIGATION MODULE                 -->
+        <!-- ================================= -->
 
-        </main>
+        <section id="navigation" class="view-panel" hidden>
 
-        <!-- SYSTEM FOOTER -->
-        <footer>
+            <p class="section-index">02 // FLIGHT CONTROL</p>
+            <h2>NAVIGATION</h2>
 
-            <p>
-                ROCINANTE COMMAND SYSTEMS
-            </p>
+            <div class="module-placeholder">
+                <h3>NAVIGATION NETWORK</h3>
+                <p>Flight planning and navigation systems are in development.</p>
+            </div>
 
-            <p>
-                UNOFFICIAL FAN-MADE SIMULATOR
-            </p>
+        </section>
 
-        </footer>
+
+        <!-- ================================= -->
+        <!-- ENGINEERING MODULE                -->
+        <!-- ================================= -->
+
+        <section id="engineering" class="view-panel" hidden>
+
+            <p class="section-index">03 // ENGINEERING</p>
+            <h2>REACTOR & DRIVE</h2>
+
+            <div class="module-placeholder">
+                <h3>ENGINEERING ACCESS</h3>
+                <p>
+                    Live reactor and drive telemetry are currently
+                    available in Command Overview.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- TACTICAL MODULE                   -->
+        <!-- ================================= -->
+
+        <section id="tactical" class="view-panel" hidden>
+
+            <p class="section-index">04 // DEFENSE</p>
+            <h2>TACTICAL SYSTEMS</h2>
+
+            <div class="module-placeholder">
+                <h3>TACTICAL NETWORK</h3>
+                <p>Defensive systems are in safe simulation mode.</p>
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- COMMUNICATIONS MODULE             -->
+        <!-- ================================= -->
+
+        <section id="communications" class="view-panel" hidden>
+
+            <p class="section-index">05 // SHIP COMMS</p>
+            <h2>COMMUNICATIONS</h2>
+
+            <div class="module-placeholder">
+                <h3>COMMUNICATIONS NETWORK</h3>
+                <p>Ship communications are in development.</p>
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- CREW MODULE                       -->
+        <!-- ================================= -->
+
+        <section id="crew" class="view-panel" hidden>
+
+            <p class="section-index">06 // PERSONNEL</p>
+            <h2>CREW MANIFEST</h2>
+
+            <div class="module-placeholder">
+                <h3>CREW DATABASE</h3>
+                <p>Crew manifest and duty stations are in development.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===================================== -->
+    <!-- FOOTER                               -->
+    <!-- ===================================== -->
+
+    <footer class="ship-footer">
+
+        <p>ROCINANTE COMMAND SYSTEMS</p>
+        <p>UNOFFICIAL FAN-MADE SIMULATOR</p>
+
+    </footer>
 
 </body>
-
 </html>
